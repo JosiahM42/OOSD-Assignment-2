@@ -5,12 +5,14 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Controller implements Initializable {
     public Tab adminTab;
@@ -112,15 +114,10 @@ public class Controller implements Initializable {
                 if (playerName.getText().isEmpty())
                 {
                     selectionTeams.get(numTeams).setPlayer(nameOfPlayer);
-                    homeTeams.get(numTeams).setPlayer(nameOfPlayer);
-                    awayTeams.get(numTeams).setPlayer(nameOfPlayer);
                 }
                 else
                 {
                     selectionTeams.get(numTeams).setPlayer(nameOfPlayer);
-                    homeTeams.get(numTeams).setPlayer(nameOfPlayer);
-                    awayTeams.get(numTeams).setPlayer(nameOfPlayer);
-                    //playerName.clear();
                 }
             }
         }
@@ -148,6 +145,7 @@ public class Controller implements Initializable {
 
     public void generateTeamStats()
     {
+        System.out.println(selectionTeams.size());
         for (int aTeam = 0; aTeam < selectionTeams.size(); aTeam++)
         {
             TeamStats eachTeamsStats = new TeamStats(selectionTeams.get(aTeam).teamName);
@@ -194,75 +192,19 @@ public class Controller implements Initializable {
         }
     }
 
-    ObservableList<String> homePlayers = FXCollections.observableArrayList();
-
-    public void selectHomePlayers(Teams homeTeam)
+    public void playersOnChangeEvent(ActionEvent event)
     {
-
-        for (int numTeams = 0; numTeams < selectionTeams.size(); numTeams++)
-        {
+        ComboBox<Teams> teamBox = (ComboBox<Teams>) event.getSource();
+        Teams homeTeam = teamBox.getValue();
+        for (int numTeams = 0; numTeams < selectionTeams.size(); numTeams++) {
             if (selectionTeams.get(numTeams).equals(homeTeam))
             {
-                homePlayers.add(selectionTeams.get(numTeams).getPlayerString());
+                playerHomeA.setItems(selectionTeams.get(numTeams).getPlayer());
+                //playerHomeA.getSelectionModel();
                 System.out.println("yes");
-//                else
-//                {
-//
-//                }
-//                homePlayers.add(selectionTeams.get(numTeams).getPlayerString());
-//                System.out.println("yes");
-//                System.out.println(selectionTeams.get(numTeams).getPlayerString());
-            }
-            else
-            {
-                System.out.println(" n/a");
-                System.out.println(homePlayers);
+                break;
             }
         }
-//        System.out.println(homePlayers);
-
-//        if(selectionTeams.contains(homeTeam))
-//        {
-//            for (Teams selectionTeam : selectionTeams) homePlayers.add(selectionTeam.getPlayerString());
-//            System.out.println("yes ");
-//            System.out.println(homePlayers);
-//        }
-//        else
-//        {
-//            System.out.println(" n/a");
-//            System.out.println(homePlayers);
-//        }
-    }
-//    public ObservableList<String> selectHomePlayers ()
-//    {
-//        Teams homeTeam = homeTeamX.getValue();
-//
-//        ObservableList<String> homePlayers = FXCollections.observableArrayList();
-//
-//        for (int numTeams = 0; numTeams < selectionTeams.size(); numTeams++)
-//        {
-//            if (selectionTeams.get(numTeams).equals(homeTeam))
-//            {
-//                homePlayers.add(selectionTeams.get(numTeams).getPlayerString());
-//            }
-//        }
-//        return homePlayers;
-//    }
-
-    public ObservableList<String> selectAwayPlayers ()
-    {
-       Teams awayTeam = awayTeamX.getValue();
-       ObservableList<String> awayPlayers = FXCollections.observableArrayList();
-
-        for (int numTeams = 0; numTeams < selectionTeams.size(); numTeams++)
-        {
-            if (selectionTeams.get(numTeams).equals(awayTeam))
-            {
-                System.out.println("Working");
-                awayPlayers.add(selectionTeams.get(numTeams).getPlayerString());
-            }
-        }
-        return awayPlayers;
     }
 
 
@@ -287,16 +229,9 @@ public class Controller implements Initializable {
 
                 if (awayTeamX.getValue().equals(homeTeamSelection))
                 {
-                    selectHomePlayers(homeTeamSelection);
-                    // playerHomeA.setItems(selectHomePlayers(homeTeamSelection));
-                    playerHomeA.setItems(homePlayers);
-                    playerHomeA.getSelectionModel();
-                    //System.out.println(homePlayers);
-
                     observable.removeListener(this);
                     System.out.println("working");
                     awayTeamX.getItems().remove(homeTeamSelection);
-
                 }
                 else
                 {

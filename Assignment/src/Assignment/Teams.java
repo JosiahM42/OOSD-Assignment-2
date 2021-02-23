@@ -5,12 +5,14 @@ import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Teams {
     // public ObservableList<String> team = FXCollections.observableArrayList();
     public String teamName = "";
     //public ArrayList<String> playersList = new ArrayList<>();
-    public List<String> playersList = new ArrayList<>();
+    //public List<String> playersList = new ArrayList<>();
+    public ObservableList<String> playersList = FXCollections.observableArrayList();
 
     public Teams() //String name
     {
@@ -37,21 +39,9 @@ public class Teams {
         this.playersList.add(player);
     }
 
-    public List<String> getPlayer()
+    public ObservableList<String> getPlayer()
     {
         return playersList;
-    }
-
-    public String getPlayerString()
-    {
-        String display = "";
-        for (String eachPlayer : playersList)
-        {
-            //return "\n" + "Player:" + eachPlayer;
-            display += "\n" + "Player:" + eachPlayer;
-        }
-        //return String.join(",", playersList);
-        return display;
     }
 
     public String toString()
