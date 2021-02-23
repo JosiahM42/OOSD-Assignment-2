@@ -1,0 +1,53 @@
+Team
+	Functions
+	-- Team Name
+	-- Player Name
+	-- 
+	Variables
+	-- Team Total
+	-- Num of single matches played
+	-- Num of double matches played
+
+Match 
+	Functions
+	-- Match Type (Single or double)
+	-- Current set leader
+	Variables
+	-- Num of players from each team
+	-- Home Team
+	-- Away Team
+	-- Current set (at end of set it is decremented)
+
+Admin
+	Functions
+	-- Add team
+	-- register new player
+	-- Generate match
+	-- Generate team stats
+	Variables
+	-- Team 
+	-- player
+
+View
+	Functions
+	-- View results
+	-- View team stats
+	-- View rankings
+	-- View previous scores
+	Variables
+	-- Match status
+	-- home team
+	-- away team
+
+Score Sheet
+	functions
+	-- new sheet
+	-- modify sheet
+	-- Input stats
+	-- calculate score
+	-- submit score
+	Variables
+	-- home team
+	-- away team
+	-- home player
+	-- away player

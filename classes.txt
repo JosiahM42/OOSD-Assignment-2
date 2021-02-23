@@ -1,0 +1,22 @@
+team
+set
+double set
+Match
+player
+fixtures
+Game
+
+Admin - Report generate, team stats
+
+(Java FX classes)
+Gui
+Report generate
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+game extend match
+
+player_Names (from match)
+
+
+

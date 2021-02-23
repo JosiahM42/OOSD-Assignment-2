@@ -1,0 +1,36 @@
+public Teams team = new Teams();
+    public Player teamPlayer = new Player();
+
+    public Admin()
+    {
+
+    }
+
+    public void setTeam(String teamsName)
+    {
+        team.setTeam(teamsName);
+        //this.team.add(teamsName);
+
+    }
+
+    public ObservableList<String> getTeam()
+    {
+        return team.getTeam();
+        //return team;
+    }
+
+    public void setPlayer(String teamPlayer)
+    {
+        this.teamPlayer.setPlayer(teamPlayer);
+    }
+
+    public ObservableList<String> getPlayer()
+    {
+        return teamPlayer.getPlayer();
+    }
+
+    public void setPlayerTeam(String teamss)
+    {
+        //this.teamPlayer.setPlayerTeam(team);
+        team.players.addAll(teamPlayer.player);
+    }
