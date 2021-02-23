@@ -47,8 +47,10 @@ public class Teams {
         String display = "";
         for (String eachPlayer : playersList)
         {
-            display = "\n" + "Player:" + eachPlayer;
+            //return "\n" + "Player:" + eachPlayer;
+            display += "\n" + "Player:" + eachPlayer;
         }
+        //return String.join(",", playersList);
         return display;
     }
 

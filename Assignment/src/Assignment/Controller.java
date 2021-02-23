@@ -194,25 +194,32 @@ public class Controller implements Initializable {
         }
     }
 
+    ObservableList<String> homePlayers = FXCollections.observableArrayList();
 
-    public ObservableList<String> selectHomePlayers(Teams homeTeam)
+    public void selectHomePlayers(Teams homeTeam)
     {
-        ObservableList<String> homePlayers = FXCollections.observableArrayList();
 
         for (int numTeams = 0; numTeams < selectionTeams.size(); numTeams++)
         {
             if (selectionTeams.get(numTeams).equals(homeTeam))
             {
                 homePlayers.add(selectionTeams.get(numTeams).getPlayerString());
-                System.out.println("yes ");
+                System.out.println("yes");
+//                else
+//                {
+//
+//                }
+//                homePlayers.add(selectionTeams.get(numTeams).getPlayerString());
+//                System.out.println("yes");
+//                System.out.println(selectionTeams.get(numTeams).getPlayerString());
+            }
+            else
+            {
+                System.out.println(" n/a");
                 System.out.println(homePlayers);
             }
-//            else
-//            {
-//                System.out.println(" n/a");
-//                System.out.println(homePlayers);
-//            }
         }
+//        System.out.println(homePlayers);
 
 //        if(selectionTeams.contains(homeTeam))
 //        {
@@ -225,7 +232,6 @@ public class Controller implements Initializable {
 //            System.out.println(" n/a");
 //            System.out.println(homePlayers);
 //        }
-        return homePlayers;
     }
 //    public ObservableList<String> selectHomePlayers ()
 //    {
@@ -281,8 +287,12 @@ public class Controller implements Initializable {
 
                 if (awayTeamX.getValue().equals(homeTeamSelection))
                 {
-                    playerHomeA.setItems(selectHomePlayers(homeTeamSelection));
+                    selectHomePlayers(homeTeamSelection);
+                    // playerHomeA.setItems(selectHomePlayers(homeTeamSelection));
+                    playerHomeA.setItems(homePlayers);
                     playerHomeA.getSelectionModel();
+                    //System.out.println(homePlayers);
+
                     observable.removeListener(this);
                     System.out.println("working");
                     awayTeamX.getItems().remove(homeTeamSelection);
