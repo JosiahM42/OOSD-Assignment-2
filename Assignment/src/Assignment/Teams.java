@@ -13,6 +13,9 @@ public class Teams {
     //public ArrayList<String> playersList = new ArrayList<>();
     //public List<String> playersList = new ArrayList<>();
     public ObservableList<String> playersList = FXCollections.observableArrayList();
+    public int matchesPlayed = 0;
+    public int matchesWon = 0;
+    public int setsWon = 0;
 
     public Teams() //String name
     {
@@ -35,13 +38,36 @@ public class Teams {
 
     public void setPlayer(String player)
     {
-
         this.playersList.add(player);
     }
 
     public ObservableList<String> getPlayer()
     {
         return playersList;
+    }
+
+    public int getMatchesPlayed() {
+        return matchesPlayed;
+    }
+
+    public void setMatchesPlayed(int matchesPlayed) {
+        this.matchesPlayed = matchesPlayed;
+    }
+
+    public int getMatchesWon() {
+        return matchesWon;
+    }
+
+    public void setMatchesWon(int matchesWon) {
+        this.matchesWon = matchesWon;
+    }
+
+    public int getSetsWon() {
+        return setsWon;
+    }
+
+    public void setSetsWon(int setsWon) {
+        this.setsWon = setsWon;
     }
 
     public String toString()
