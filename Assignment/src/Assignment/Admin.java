@@ -1,5 +1,7 @@
 package Assignment;
 
+import Classes.Fixtures;
+import Classes.Teams;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -44,23 +46,23 @@ public class Admin {
         }
     }
 
-    public void generateMatches()
-    {
-        for (int aTeam = 0; aTeam < teamList.size(); aTeam++)
-        {
-            for (int bTeam = 0; bTeam < teamList.size(); bTeam++)
-            {
-                if (aTeam != bTeam)
-                {
-                    Fixtures teamMatches = new Fixtures(teamList.get(aTeam).teamName, teamList.get(bTeam).teamName);
-                    teamMatches.setTeamFixtures();
-                    matches.add(teamMatches);
-                    //System.out.println(matches);
-                }
-
-            }
-        }
-    }
+//    public void generateMatches()
+//    {
+//        for (int aTeam = 0; aTeam < teamList.size(); aTeam++)
+//        {
+//            for (int bTeam = 0; bTeam < teamList.size(); bTeam++)
+//            {
+//                if (aTeam != bTeam)
+//                {
+//                    Fixtures teamMatches = new Fixtures(teamList.get(aTeam).teamName, teamList.get(bTeam).teamName);
+//                    teamMatches.setTeamFixtures();
+//                    matches.add(teamMatches);
+//                    //System.out.println(matches);
+//                }
+//
+//            }
+//        }
+//    }
 
     public List<Fixtures> getMatches() {
         return matches;

@@ -1,9 +1,9 @@
-package Assignment;
+package Classes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Set {
+public class Sets {
     public String homePlayer = "";
     public String awayPlayer = "";
     public int homeTeamPoint = 0;
@@ -12,7 +12,7 @@ public class Set {
     public int awayTotalPoint = 0;
     public List<Game> setList = new ArrayList<>();
 
-    public Set() {
+    public Sets() {
 
     }
 

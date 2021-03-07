@@ -1,6 +1,6 @@
-package Assignment;
+package Classes;
 
-public class DoubleSet extends Set{
+public class DoubleSet extends Sets {
 
     public DoubleSet()
     {

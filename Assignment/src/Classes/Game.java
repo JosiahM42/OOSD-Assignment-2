@@ -1,4 +1,4 @@
-package Assignment;
+package Classes;
 
 public class Game {
     public int homePlayerPoint = 0;

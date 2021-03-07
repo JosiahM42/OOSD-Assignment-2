@@ -1,5 +1,4 @@
-package Assignment;
-
+package Classes;
 
 import java.util.ArrayList;
 
@@ -9,10 +8,12 @@ public class Match {
     public Teams awayTeam;
     public String homePlayerA, homePlayerB = "";
     public String awayPlayerA, awayPlayerB = "";
-    //public Set[] matchSets = new Set[3];
-    public ArrayList<Set> matchSinglesSets = new ArrayList<>();
-    public ArrayList<String> matchWins = new ArrayList<>();
     public String matchTotal = "";
+    public int[] teamSetWins = new int[2];
+
+    public ArrayList<Sets> matchSinglesSets = new ArrayList<>();
+    public ArrayList<String> matchWins = new ArrayList<>();
+
 
     public Match(Teams homeTeam, Teams awayTeam, String homePlayerA, String homePlayerB,
                  String awayPlayerA, String awayPlayerB)
@@ -27,16 +28,12 @@ public class Match {
         this.awayPlayerB = awayPlayerB;
 
 
-        matchSinglesSets.add(new Set());
-        matchSinglesSets.add(new Set());
-        matchSinglesSets.add(new Set());
-        matchSinglesSets.add(new Set());
+        matchSinglesSets.add(new Sets());
+        matchSinglesSets.add(new Sets());
+        matchSinglesSets.add(new Sets());
+        matchSinglesSets.add(new Sets());
         matchSinglesSets.add(new DoubleSet());
 
-//        matchSets[0] = new Set();
-//        matchSets[1] = new Set();
-//        matchSets[2] = new Set();
-//        matchSets[3] = new Set();
     }
 
     public Teams getHomeTeam() {
@@ -141,10 +138,23 @@ public class Match {
         away += matchSinglesSets.get(4).getAwayTotalPoint();
 
         matchTotal = home + ":" + away;
+        teamSetWins[0] = home;
+        teamSetWins[1] = away;
 
     }
 
-    public ArrayList<Set> getMatchSinglesSets()
+    public int teamWon()
+    {
+        if (teamSetWins[0] > teamSetWins[1])
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public ArrayList<Sets> getMatchSinglesSets()
     {
         return matchSinglesSets;
     }
@@ -159,14 +169,16 @@ public class Match {
         return matchWins;
     }
 
-
+    public int[] getTeamSetWins() {
+        return teamSetWins;
+    }
 
     public String toString()
     {
 
         String display = "Match: " + homeTeam + " Vs " + awayTeam;
 
-        for (Set eachPlayer : matchSinglesSets)
+        for (Sets eachPlayer : matchSinglesSets)
         {
             display += "\n" + eachPlayer.toString() + String.join(",", eachPlayer.getSetList().toString()) + "}";
         }
