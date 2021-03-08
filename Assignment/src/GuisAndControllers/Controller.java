@@ -800,7 +800,7 @@ public class Controller implements Initializable {
         // Calls the new sheet function to clear the score sheet if it is filled out
         generateNewScoreSheet();
 
-        hideScoreSheet.setVisible(false); // Makes the score sheet hidden
+        hideScoreSheet.setVisible(true); // Makes the score sheet hidden
         findMatch.setVisible(true); // Makes a button visible
         scoreSheetResponse.setVisible(true); // Makes a label visible
         createScoreSheet.setVisible(false); // makes the previous button invisible
