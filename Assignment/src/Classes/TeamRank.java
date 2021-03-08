@@ -7,7 +7,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class TeamRank extends Reports {
+//public class TeamRank extends Reports {
+public class TeamRank extends TeamStats {
 
     public List<String> teamRankings = new ArrayList<>();
 

@@ -1,5 +1,6 @@
-package Classes;
+package Assignment;
 
+import Classes.Teams;
 import javafx.collections.ObservableList;
 
 public class Reports {

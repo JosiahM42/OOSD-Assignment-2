@@ -5,9 +5,11 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamStats extends Reports {
+//public class TeamStats extends Reports {
+public class TeamStats {
 
     List<String> totalTeamStats = new ArrayList<>();
+    ObservableList<Teams> competingTeams;
 
     /*
         Constructor Name: TeamStats
@@ -17,7 +19,8 @@ public class TeamStats extends Reports {
 
     public TeamStats (ObservableList<Teams> competingTeams)
     {
-        super(competingTeams);
+        //super(competingTeams);
+        this.competingTeams = competingTeams;
     }
 
     /*
